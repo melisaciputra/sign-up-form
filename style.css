@@ -1,0 +1,176 @@
+/*
+  Modified Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    max-inline-size: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  button {
+    cursor: pointer;
+}
+/*End of reset*/
+
+
+ 
+body{
+    font-family: 'Lisu Bosa', serif;
+    font-weight:400;
+ }
+p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+a {
+    text-decoration: none;
+    font-weight: 700;
+}
+h1, h2, h3{
+    color: #3b513c;
+}
+h1 {
+    font-size: 2.5em;
+}
+h2 {
+    font-size: 1.8em;
+}
+.flex-container {
+    display: flex;
+}
+.sidebar {
+    flex: 1;
+    height: 100vh;
+    background: url(bg.jpg) center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+.sidebar > * {
+    margin: 5vw;
+}
+.sidebar * {
+    z-index: 100;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.sidebar::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.25;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+blockquote p {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 2.4em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    margin-top: 10vh;
+}
+.main {
+    flex: 2;
+    background-color: #eee;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.main a{
+    color:#3b513c;
+}
+.wrapper{
+    padding: 20px 5vw;
+    max-width: 80%;
+}
+.form-container {
+    background: white;
+    padding: 30px 5vw 40px;
+}
+button {
+    border-radius: 0;
+    background-color: #3b513c;
+    color: white;
+    border: 1px solid #3b513c;
+    padding: 15px 25px;
+    margin: 0 0 10px;
+    letter-spacing: 2px;
+    font-family: arial;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+label {
+    display: block;
+    opacity: 0.9;
+    font-size: 0.7rem;
+    margin-top: 10px;
+    font-family: arial;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.input {
+    width: 40%;
+}
+input{
+    width:95%;
+}
+@media only screen and (max-width: 900px) {
+    .flex-container {
+        flex-direction: column;
+    }
+    .wrapper {
+        max-width: 100%;
+    }
+    blockquote p {
+        margin-top: 5vh;
+    }
+    .input {
+        width: 50%;
+    }
+    h1 {
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    html{
+        font-size: 14px;
+    }
+    .input {
+        width: 100%;
+    } 
+    blockquote p {
+        font-size: 2em;
+    }
+}

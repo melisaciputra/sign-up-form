@@ -4,43 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lisu+Bosa:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+
 </head>
-<body>
-    <div id="sidebar">
+<body class="flex-container">
+    <div class="sidebar">
         <blockquote>
-            <p>The <b>happiness</b> of your life depends upon the quality of your <b>thought</b></p>
+            <p>The <b>happiness</b> of your life depends upon the quality of your <b>thought.</b></p>
             <footer>- Marcus Aurelius</footer>
         </blockquote>
         <p>
-            Photo by <a href="https://unsplash.com/@julianhochgesang?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Julian Hochgesang</a> on <a href="https://unsplash.com/photos/7SV4cz3UFEI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            Photo by <a href="https://unsplash.com/@jilldimond?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jill Dimond</a> on <a href="https://unsplash.com/photos/aXfdZiuNx40?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         </p>
     </div>
-    <div id="main">
-        <h1>Get a stoic quote sent to your inbox daily.</h1>
-        <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreanms. <br> Sign up <i>now</i> to get started.</p>
-        <p>You <i>know</i>you want to.</p>
+    <div class="main">
+        <div class="wrapper">
+            <h1>This is not a real online service!</h1>
+            <p>You know you need something like this in your life to help you realize your deepest dreams. Yes, you know you want to click that button below. Sign up <i>now</i> to get started.</p>
+            <p>You <i>know</i> you want to.</p>
+        </div>    
         <div class="form-container">
             <h2>Let's do this!</h2>
-            <form action="" method="post">
-                <input type="text" name="firstname" label="First Name">
-                <input type="text" name="lastname" label="Last Name">
-                <input type="email" name="email" label="Email">
-
+            <form id="a-form" onsubmit="event.preventDefault(); alert('Form submitted');" action="post">
+                <div class="input">
+                    <label for="first_name">First Name*</label>
+                    <input type="text" name="firstname" id="first_name" required>
+                </div>
+                <div class="input">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="lastname"  id="last_name">
+                </div>
+                <div class="input">
+                    <label for="email_address">Email Address*</label>
+                    <input type="email" name="email" id="email_address" required>
+                </div>
+                <div class="input">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="tel" name="phone" id="phone_number" minlength="7" maxlength="15">
+                </div>
+                <div class="input">
+                    <label for="user_password">Password*</label>
+                    <input type="password" name="password" id="user_password" required>
+                </div>
+                <div class="input">
+                    <label for="confirm_password">Confirm Password*</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required>
+                </div>
             </form>
-
-
+        </div>
+        <div class="wrapper">
+            <button type="submit" form="a-form">Create Account</button>
+            <p>Already have an account? <a href="#">Login</a></p>
+            <p id="values"></p>
         </div>
     </div>
+    <script>
+    const phone_input = document.querySelector('#phone_number');
+    const password_input = document.querySelector('#user_password');
+    const password_confirmation = document.querySelector('#confirm_password');
+    const log = document.getElementById("values");
+    let password = "";
+
+    function validatePhoneNumber(input_str) {
+        var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        return re.test(input_str);
+    }
+
+    phone_input.addEventListener('blur', () => {
+        if (!validatePhoneNumber(phone_input.value)){
+            phone_input.setCustomValidity('Incorrect phone format.');
+        }
+        else phone_input.setCustomValidity('');
+    });
+
+    password_confirmation.addEventListener('blur', () => {
+        const password = password_input.value;
+        if (password_confirmation.value !== password){
+            password_confirmation.setCustomValidity('Password does not match.');
+        }
+        else password_confirmation.setCustomValidity('');
+    });
 
 
 
 
-
-
-
-
-
- 
-
+    </script>
+    
 </body>
 </html>
